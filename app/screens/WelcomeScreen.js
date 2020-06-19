@@ -1,24 +1,29 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground } from "react-native";
-import colors from "../config/colors";
+import { View, StyleSheet, ImageBackground, Text } from "react-native";
 import AppButton from "../components/AppButton";
+import colors from "../config/colors";
 
 function WelcomeScreen(props) {
   return (
     <ImageBackground
       style={styles.background}
-      source={require("../assets/ski.jpeg")}
+      // source={require("../assets/images/ski.jpeg")}
     >
+      <View style={styles.titleContainer}>
+        <Text style={styles.text}>T i m e</Text>
+        <Text style={styles.textMiddle}>o f</Text>
+        <Text style={styles.textFinal}>L i f e . . .</Text>
+      </View>
       <View style={styles.buttonsContainer}>
         <AppButton
-          title={"login"}
+          title={"Login"}
           color="darkPurple"
           onPress={() => console.log("Clicked")}
         >
-          Login
+          Log In
         </AppButton>
         <AppButton
-          title={"Register"}
+          title={"register"}
           color="darkPurple"
           onPress={() => console.log("Clicked")}
         >
@@ -32,12 +37,32 @@ function WelcomeScreen(props) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
+    backgroundColor: colors.darkBlue,
   },
   buttonsContainer: {
     padding: 20,
     width: "100%",
+  },
+  text: {
+    color: colors.lightOrange,
+    fontSize: 35,
+  },
+  textMiddle: {
+    color: colors.lightOrange,
+    fontSize: 35,
+    left: 100,
+  },
+  textFinal: {
+    color: colors.lightOrange,
+    fontSize: 35,
+    left: 140,
+  },
+  titleContainer: {
+    position: "absolute",
+    top: 100,
+    left: 60,
   },
 });
 
