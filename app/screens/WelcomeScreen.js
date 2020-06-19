@@ -11,12 +11,13 @@ function WelcomeScreen(props) {
     >
       <View style={styles.titleContainer}>
         <Text style={styles.text}>T i m e</Text>
-        <Text style={styles.textMiddle}>o f</Text>
-        <Text style={styles.textFinal}>L i f e . . .</Text>
+        <Text style={[styles.text, styles.middle]}>o f</Text>
+        <Text style={[styles.text, styles.final]}>L i f e . . .</Text>
       </View>
       <View style={styles.buttonsContainer}>
         <AppButton
           title={"Login"}
+          width="100%"
           color="darkPurple"
           onPress={() => console.log("Clicked")}
         >
@@ -24,6 +25,7 @@ function WelcomeScreen(props) {
         </AppButton>
         <AppButton
           title={"register"}
+          width="100%"
           color="darkPurple"
           onPress={() => console.log("Clicked")}
         >
@@ -46,17 +48,13 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   text: {
-    color: colors.lightOrange,
+    color: colors.lightBlue,
     fontSize: 35,
   },
-  textMiddle: {
-    color: colors.lightOrange,
-    fontSize: 35,
+  middle: {
     left: 100,
   },
-  textFinal: {
-    color: colors.lightOrange,
-    fontSize: 35,
+  final: {
     left: 140,
   },
   titleContainer: {
