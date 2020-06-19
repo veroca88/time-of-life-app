@@ -2,13 +2,15 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import colors from "../config/colors";
 
-function AppButton({ color, title, onPress }) {
+function AppButton({ color, title, onPress, style }) {
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: colors[color] }]}
+      accessible={true}
+      accessibilityLabel={title}
+      style={[styles.button, { backgroundColor: colors[color] }, style]}
       onPress={onPress}
     >
-      <Text style={styles.text}>{title}</Text>
+      <Text style={[styles.text, { color: colors.darkBlue }]}>{title}</Text>
     </TouchableOpacity>
   );
 }
@@ -20,8 +22,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: "center",
     padding: 15,
-    width: "100%",
     marginVertical: 10,
+    // width: "50%",
   },
   text: {
     color: colors.lightOrange,
