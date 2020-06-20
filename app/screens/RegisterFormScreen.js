@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { StyleSheet, TextInput, View, Text } from "react-native";
+import React from "react";
+import { StyleSheet, View, Text } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import colors from "../config/colors";
-import App from "../../App";
-import AppButton from "../components/AppButton";
+import AppText from "../components/AppText";
+import AppForm from "../components/AppForm";
+import AppTextFormField from "../components/AppTextFormField";
+import SubmitButton from "../components/SubmitButton";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -14,50 +16,44 @@ const validationSchema = Yup.object().shape({
 });
 
 function RegisterFormScreen(props) {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
   return (
     <Screen style={styles.screen}>
-      <View>
-        <Text style={styles.text}>Welcome to Time of Life!</Text>
-      </View>
-      <View>
-        <TextInput
-          style={styles.container}
+      <AppForm
+        initialValues={{ name: "", email: "", password: "" }}
+        validationSchema={validationSchema}
+        onSubmit={(values) => console.log(values)}
+      >
+        <View>
+          <AppText style={styles.text}>Welcome!!!</AppText>
+        </View>
+        <AppTextFormField
+          name="name"
+          icon="face-profile"
           autoCapitalize="none"
           autoCorrect={false}
-          keyboardType="default"
           placeholder="Name"
-          onChangeText={(text) => setName(text)}
+          placeholderTextColor={colors.blueMarine}
         />
-      </View>
-      <View>
-        <TextInput
-          style={styles.container}
+        <AppTextFormField
+          name="email"
+          icon="email"
           autoCapitalize="none"
           autoCorrect={false}
           keyboardType="email-address"
           placeholder="Email"
-          onChangeText={(text) => setEmail(text)}
+          placeholderTextColor={colors.blueMarine}
         />
-      </View>
-      <View>
-        <TextInput
-          style={styles.container}
+        <AppTextFormField
+          icon="lock"
+          name="password"
           autoCapitalize="none"
           autoCorrect={false}
           placeholder="Password"
-          onChangeText={(text) => setPassword(text)}
+          placeholderTextColor={colors.blueMarine}
           secureTextEntry
         />
-        <AppButton
-          title={"Submit"}
-          color="lightBlue"
-          style={styles.buttonSubmit}
-          onPress={() => console.log("Clicked")}
-        />
-      </View>
+        <SubmitButton style={styles.buttonSubmit} title="Submit" />
+      </AppForm>
     </Screen>
   );
 }
@@ -67,25 +63,15 @@ const styles = StyleSheet.create({
     width: "50%",
     marginTop: 60,
     marginLeft: 90,
-    color: colors.mediumDarkBlue,
-  },
-  container: {
-    backgroundColor: colors.darkBlue,
-    borderRadius: 25,
-    flexDirection: "row",
-    width: "100%",
-    marginTop: 30,
-    padding: 15,
-    marginVertical: 10,
+    backgroundColor: colors.yellowGreen,
   },
   screen: {
-    padding: 20,
-    backgroundColor: colors.mediumDarkBlue,
-    width: "100%",
+    padding: 40,
+    backgroundColor: colors.blueMarine,
   },
   text: {
+    color: colors.yellowGreen,
     fontSize: 28,
-    color: colors.lightBlue,
     textAlign: "center",
     paddingTop: 80,
     paddingBottom: 40,

@@ -4,7 +4,7 @@ import colors from "./colors";
 export default {
   colors,
   text: {
-    color: colors.mediumDarkBlue,
+    color: colors.coffee,
     fontSize: 18,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },

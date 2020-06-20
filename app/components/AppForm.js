@@ -1,5 +1,7 @@
 import React from "react";
+import { StyleSheet } from "react-native";
 import { Formik } from "formik";
+import colors from "../config/colors";
 
 function AppForm({ initialValues, onSubmit, validationSchema, children }) {
   return (
@@ -8,13 +10,9 @@ function AppForm({ initialValues, onSubmit, validationSchema, children }) {
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
-      {() => <> {children} </>}
+      {() => <>{children}</>}
     </Formik>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {},
-});
 
 export default AppForm;

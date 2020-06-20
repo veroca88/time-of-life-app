@@ -7,7 +7,7 @@ function WelcomeScreen(props) {
   return (
     <ImageBackground
       style={styles.background}
-      // source={require("../assets/images/ski.jpeg")}
+      source={require("../assets/images/ski.jpeg")}
     >
       <View style={styles.titleContainer}>
         <Text style={styles.text}>T i m e</Text>
@@ -18,7 +18,7 @@ function WelcomeScreen(props) {
         <AppButton
           title={"Login"}
           width="100%"
-          color="darkPurple"
+          color="yellowGreen"
           onPress={() => console.log("Clicked")}
         >
           Log In
@@ -26,7 +26,7 @@ function WelcomeScreen(props) {
         <AppButton
           title={"register"}
           width="100%"
-          color="darkPurple"
+          color="yellowGreen"
           onPress={() => console.log("Clicked")}
         >
           Register
@@ -41,14 +41,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.blueMarine,
   },
   buttonsContainer: {
     padding: 20,
     width: "100%",
   },
   text: {
-    color: colors.lightBlue,
+    color: colors.yellowGreen,
     fontSize: 35,
   },
   middle: {
