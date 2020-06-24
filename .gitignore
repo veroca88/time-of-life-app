@@ -13,5 +13,4 @@ web-report/
 # macOS
 .DS_Store
 
-app/components/CalculationScreen.js
-app/screens/CalculationScreen.js
+
