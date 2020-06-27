@@ -57,27 +57,31 @@ function CalculationScreen(props) {
         When we buy something, we're not paying with money. We're paying with
         the time from our lives we had to spend to earn that money! Jose Mujica.
       </AppText>
-      <AppTextInput
-        icon="timer"
-        onChangeText={(value) => setAmount(value)}
-        style={styles.inputs}
-        placeholder="How much you earn un one hour?"
-        placeholderTextColor={colors.blueMarine}
-      />
-      <AppTextInput
-        icon="cash-multiple"
-        onChangeText={(value) => setPrice(value)}
-        style={styles.inputs}
-        placeholder="How much the item cost?"
-        placeholderTextColor={colors.blueMarine}
-      />
+      <View style={styles.container}>
+        <AppText>How much you earn un one hour?</AppText>
+        <AppTextInput
+          icon="timer"
+          onChangeText={(value) => setAmount(value)}
+          style={styles.inputs}
+          placeholderTextColor={colors.blueMarine}
+          width="50%"
+        />
+        <AppText>How much the item cost?</AppText>
+        <AppTextInput
+          icon="cash-multiple"
+          onChangeText={(value) => setPrice(value)}
+          style={styles.inputs}
+          placeholderTextColor={colors.blueMarine}
+          width="50%"
+        />
 
-      <AppButton
-        color="yellowGreen"
-        style={styles.resultButton}
-        title="Calculate"
-        onPress={resultButton}
-      />
+        <AppButton
+          color="yellowGreen"
+          style={styles.resultButton}
+          title="Calculate"
+          onPress={resultButton}
+        />
+      </View>
       <AppText style={styles.textResult}>
         You have to spend {result} hours of your life!!
       </AppText>
@@ -86,6 +90,9 @@ function CalculationScreen(props) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+  },
   inline: {
     flexDirection: "row",
   },
